@@ -1,0 +1,61 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: Set up .firebaserc
+      run: echo -e "{\n  {\n    \"projects\":{\n        \"default\":\"${{ secrets.FIREBASE_PJ }}\"\n  }\n}" > .firebaserc
+
+    - name: Set up node ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Set up node_modules
+      run: cd functions && npm install
+
+    - name: Cache node_modules packages
+      uses: actions/cache@v1
+      with:
+        path: ~/funcions/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Set up firebase-tools
+      run: npm install --save-dev firebase-tools
+
+    - name: Cache node_modules dev packages
+      uses: actions/cache@v1
+      with:
+        path: ~/node_modules
+        key: ${{ runner.os }}-node-dev-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-dev-
+
+    - name: Deploy to Firebase
+      run: node_modules/.bin/firebase deploy --project "${{ secrets.FIREBASE_PJ }}" --token "${{ secrets.FIREBASE_TOKEN }}"
+
+    - name: Slack Notification
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,action,took
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()

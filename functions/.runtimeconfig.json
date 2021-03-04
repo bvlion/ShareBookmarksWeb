@@ -1,0 +1,6 @@
+{
+  "url": {
+    "privacy": "http://0.0.0.0:8080/etc/privacy_policy",
+    "terms": "http://0.0.0.0:8080/etc/terms_of_use"
+  }
+}
