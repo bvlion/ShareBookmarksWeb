@@ -6,3 +6,18 @@
 
 - Cloud Functions for Firebase
 - Firebase Hosting
+
+### URL
+
+config に設定している
+
+```
+firebase functions:config:get
+```
+
+#### 再設定
+
+```
+firebase functions:config:set url.terms="https://*.appspot.com/etc/terms_of_use"
+firebase functions:config:set url.terms="https://*.appspot.com/etc/privacy_policy"
+```
