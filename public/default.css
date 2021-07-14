@@ -66,3 +66,49 @@ body.locked {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
+.index-color {
+  background-color: #D8E9F5;
+}
+
+.top-image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.top-text {
+  align-self: center;
+  color: #FFF;
+  opacity: 1;
+}
+.top-text p {
+  font-size: 1.07em;
+}
+
+.main-padding {
+  padding: 1.5em;
+}
+.main-padding p li {
+  font-size: 1.01em;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (max-width: 479px) {
+  .mdl-cell--0-col-phone {
+    width: 0;
+  }
+}
+
+.top-back {
+  background: url(image/back.jpg) no-repeat center;
+  background-size: cover;
+  padding: 0 !important;
+}
+
+.bg {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}

@@ -8,7 +8,7 @@ app.engine("html", require("ejs").renderFile)
 app.set("view engine", "html")
 app.use(express.static(path.join(__dirname, "public")))
 
-const render = (res, data) => res.render("index.html", data)
+const render = (res, data) => res.render("section.html", data)
 
 app.get("/terms_of_use", (_, res) => render(res, {
   title: "【シェブ！】利用規約",
@@ -19,5 +19,7 @@ app.get("/privacy_policy", (_, res) => render(res, {
   title: "【シェブ！】プライバシーポリシー",
   url: functions.config().url.privacy
 }))
+
+app.get("/", (_, res) => res.render("index.html"))
 
 exports.app = functions.https.onRequest(app)

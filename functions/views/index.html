@@ -3,33 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= title %></title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="/default.css" rel="stylesheet" type="text/css" media="all"/>
+  <title>シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう</title>
   <link rel="icon" href="/favicon-192x192.png" sizes="192x192" type="image/png">
   <link rel="icon" href="/favicon.ico">
+  <link href="/default.css" rel="stylesheet" type="text/css" media="all"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <meta property="og:title" content="シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="当サイトは、Markdownを使い捨てで登録していただけるサイトです。">
+  <meta property="og:url" content="https://sharebookmarkapp.web.app/">
+  <meta property="og:image" content="https://sharebookmarkapp.web.app/favicon-192x192.png">
+  <meta property="og:site_name" content="シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう">
+  <meta name="keywords" content="サービス,シェブ,Sheb,アプリ,レシピ,ツール">
+  <meta name="description" content="「シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう」の公式ホームページです。">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebPage",
+      "name": "シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう",
+      "url": "https://sharebookmarkapp.web.app/",
+      "about": "「シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう」の公式ホームページです。"
+    }
+  </script>
 </head>
-<body class="locked">
-  <div class="container main">
-    <div id="result" class="markdown-body">
+<body>
+  <div class="top-back">
+    <div class="mdl-grid bg">
+      <div class="mdl-cell mdl-cell--8-col top-text main-padding">
+        <h3>シェブ！ - レシピやサイトをブックマークしてシェア（共有）しよう</h3>
+        <a href='https://play.google.com/store/apps/details?id=net.ambitious.android.sharebookmarks' target="_blank"><img alt='Google Play で手に入れよう' src='https://play.google.com/intl/en_us/badges/images/generic/ja_badge_web_generic.png' width="300px"/></a>
+        <p>
+          「いつも使っているあのレシピを夫婦で閲覧したい」「このサイトを一緒に見ながら話したい」そんな時は、このアプリを通して共有しましょう。
+          やり方は簡単！<br>
+          Google アカウントをお持ちなら、左メニューからログインして共有するためのフォルダを作り、共有したいお相手をフォルダのメニューから招待しておくだけ。<br>
+          招待したフォルダにブックマークを入れていけば、みんなに共有されます。
+        </p>
+      </div>
+      <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet center">
+        <picture>
+          <source media="(max-width: 839px)" srcset="/image/half_main_image.png">
+          <img alt='スマートフォン' src='/image/main_image.png' class="top-image"/>
+        </picture>
+      </div>
     </div>
   </div>
-  <div class="loading-overlay"></div>
-  <div class="loader"></div>
-  <script>
-    window.onload = () => 
-      fetch('<%= url %>', {
-        method: 'GET',
-        mode: 'cors'
-      })
-      .then(response => response.json())
-      .then(json => {
-        document.querySelector('#result').innerHTML = '<h1><%= title %></h1>' + json.message
-        document.querySelector('body').classList.remove('locked')
-        document.querySelector('.loading-overlay').style.display = 'none'
-        document.querySelector('.loader').style.display = 'none'
-      })
-  </script>
+  <div class="mdl-grid index-color">
+    <div class="mdl-cell mdl-cell--12-col main-padding">
+      <h5>特徴</h5>
+      <ul>
+        <li>サイトの画像付きのブックマークになるから見やすい</li>
+        <li>機種変更してもログインだけでデータ移行が簡単</li>
+        <li>ブックマークの登録が簡単</li>
+        <li>登録したブックマークの検索と並び替えが自由</li>
+      </ul>
+      <h5>画像付きで見やすい</h5>
+      <p>
+        名前だとつい忘れがちなブックマークも、画像で見れます。<br>
+        「そういえばこんなブックマークもしてた」が直感的に思い出せます。<br>
+        （※ サイトにサムネイルが設定されている場合に限ります）
+      </p>
+      <h5>検索が簡単</h5>
+      <p>
+        「どのフォルダに入れたっけ？」も、検索ができるからすぐ見つけられます。<br>
+        取り敢えずブックマークしたけど…も、安心です。
+      </p>
+      <h5>並び替えが自由</h5>
+      <p>
+        右上のメニューや長押しでお好きな順に並び替えができます。<br>
+        よく使うブックマークは上へ！も直感的に移動できます。
+      </p>
+      <h5>機種変更も楽々</h5>
+      <p>
+        オンラインでブックマークを管理しているので、別の機種になっても Google アカウントでログインするだけで前のデータを引き継げます。<br>
+        エクスポートやインポートといった作業は不要です！
+      </p>
+      <h5>電話帳へのアクセスについて</h5>
+      <p>
+        共有相手を探しやすいよう、電話帳検索機能を設けています。<br>
+        こちらは同意した場合に限りアクセスします。<br>
+        同意していない場合はアクセスすることはありませんし、アクセス後も不必要にデータ収集等はいたしません。<br>
+        詳しくはプライバシーポリシーをご確認ください。
+      </p>
+    </div>
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--0-col-phone"></div>
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone center">
+      <a href="/terms_of_use">利用規約</a>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-col-phone center">
+      <a href="/privacy_policy">プライバシー・ポリシー</a>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-tablet mdl-cell--0-col-phone"></div>
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col center">Copyright © 2021 bvlion. All rights reserved.</div>
+  </div>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQDT2TGHSN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
