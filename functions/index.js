@@ -21,5 +21,6 @@ app.get("/privacy_policy", (_, res) => render(res, {
 }))
 
 app.get("/", (_, res) => res.render("index.html"))
+app.get("/index", (_, res) => res.render("index.html"))
 
 exports.app = functions.https.onRequest(app)
