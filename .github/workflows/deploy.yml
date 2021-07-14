@@ -22,7 +22,7 @@ jobs:
       run: echo -e "{\n  {\n    \"projects\":{\n        \"default\":\"${{ secrets.FIREBASE_PJ }}\"\n  }\n}" > .firebaserc
 
     - name: Set app-ads
-      run: echo "${{ secrets.ADS_TXT }}"" > public/app-ads.txt
+      run: echo "${{ secrets.ADS_TXT }}" > public/app-ads.txt
 
     - name: Set up node ${{ matrix.node-version }}
       uses: actions/setup-node@v1
